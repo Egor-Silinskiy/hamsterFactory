@@ -41,7 +41,7 @@ class HamsterFactory {
                 System.out.println("Программа завершена! Спасибо, что пользуетесь нашей сетью хомячих фабрик");
                 break;
             } else {
-                executeCommand();
+                executeCommand(command);
             }
         }
     }
@@ -67,7 +67,7 @@ class HamsterFactory {
             System.out.println("Хомяка по заданному индексу не существует");
         } else { 
             Hamster hamsterRemove = hamsterFactory.remove(index);
-            System.out.println("Хомяк " + hamsterRemove + " удален успешно");
+            System.out.println("Хомяк " + hamsterRemove.name + " удален успешно");
                }
             // если хомяк существует, надо удалить его и вывести сообщение: "Хомяк '[Имя удаленного хомяка]' удалён успешно"
         // иначе вывести сообщение: "Хомяка по заданному индексу не существует"
@@ -80,8 +80,8 @@ class HamsterFactory {
 
     private void executeSet(int index, String name) {
         Hamster newHamster = new Hamster(name);
-        oldHamster = hamsterFactory.set(index, newHamster);
-        System.out.println("Хомяк " + oldHamster + " был успешно заменен на хомяка" + newHamster); // создайте хомяка с именем [name] и замените им хомяка на позиции [index]
+        Hamster oldHamster = hamsterFactory.set(index, newHamster);
+        System.out.println("Хомяк " + oldHamster.name + " был успешно заменен на хомяка" + newHamster.name); // создайте хомяка с именем [name] и замените им хомяка на позиции [index]
         // выведите сообщение "Хомяк '[Имя удаленного хомяка]' был успешно заменён на хомяка '[Имя нового хомяка]'"
     }
 
